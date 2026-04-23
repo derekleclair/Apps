@@ -1,8 +1,9 @@
 import sys
 import os
 from PySide6.QtWidgets import QMainWindow, QPushButton, QLabel, QApplication, QLCDNumber, QLineEdit, QHBoxLayout, QWidget, QVBoxLayout, QSizePolicy
-from PySide6.QtCore import QTimer, QSize, Qt
+from PySide6.QtCore import QTimer, QSize, Qt, QUrl
 from PySide6.QtGui import QIntValidator
+from PySide6.QtMultimedia import QSoundEffect
 
 
 class Timer(QMainWindow):
@@ -11,8 +12,14 @@ class Timer(QMainWindow):
         super().__init__()
         self.setFixedSize(QSize(600,450)) 
 
+        self.alarm = QSoundEffect()
+        self.alarm.setSource(QUrl.fromLocalFile("alarm.wav"))
+        self.alarm.setVolume(0.5)
 
+#initialized values
         self.total_seconds = 0
+        self.stored_timer = 0
+
         self.lcd = TimerDisplay()
         self.update_display()
 
@@ -135,6 +142,7 @@ class Timer(QMainWindow):
         self.update_display()
 
     def repeat_timer(self):
+        
         self.total_seconds = self.stored_timer
         self.update_display()
 
@@ -144,7 +152,8 @@ class Timer(QMainWindow):
             self.update_display()
         else:
             self.timer.stop()
-
+            self.alarm.play()
+            print("alarm alarm alarm")
 
 
     def update_display(self):
