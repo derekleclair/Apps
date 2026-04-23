@@ -1,0 +1,24 @@
+QMainWindow {
+	background-color: #D3D3D3;
+}
+
+QLineEdit {
+	border: 2px solid black;
+	border-radius: 10px;
+	padding: 4px;
+}
+/*
+QFrame {
+    /* Background: Ruby menus use a soft off-white */
+    background-color: #f8f8f8; 
+    
+    /* Border: 3px or 4px solid dark grey/black for that GBA look */
+    border: 3px solid #404040; 
+    
+    /* Rounded corners: 6px-10px mimics the message box curve */
+    border-radius: 8px; 
+    
+    /* Padding: Keeps your QVBoxLayout content away from the edges */
+    padding: 12px;
+}
+*/
